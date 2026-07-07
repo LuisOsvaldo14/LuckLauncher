@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luck Launcher — Flip Coin & Roll Dice</title>
+    <meta name="description" content="Luck Launcher: Flip a coin or roll dice with animated results. Small playful web app with language selector.">
+    <meta name="keywords" content="coin flip, dice roll, random, luck, launcher, language selector">
+    <meta property="og:title" content="Luck Launcher — Flip Coin & Roll Dice">
+    <meta property="og:description" content="Flip a coin or roll dice with animated results. Playful micro app with language selector.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="assets/logo.png" class="site-logo" alt="Logo">
+            <span class="nav-logo">Luck Launcher</span>
+        </div>
+        <div class="nav-right">
+            <label for="language-select" class="nav-label">Language:</label>
+            <select id="language-select" class="nav-select">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=HLFVV7CPY8JJQ" target="_blank" rel="noopener noreferrer" class="button donate-button">Buy me a coffee</a>
+        </div>
+    </nav>
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <div class="contenedor" id="contenedor">
+        
+        <div id="resultado" alt="Result" class="contenedor-resultado"></div>
+        <div>
+            <button id="btn-moneda" class="button">Flip Coin</button>
+            <button id="btn-dado" class="button">Roll Dice</button>
+        </div>
+    </div>
+    
+    <script src="JS/main.js"></script>
+</body>
+</html>
