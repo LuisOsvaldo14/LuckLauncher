@@ -13,8 +13,8 @@ const i18n = {
         flipCoin: 'Flip Coin',
         rollDice: 'Roll Dice',
         initialResult: 'Initial result',
-        heads: 'Heads',
-        tails: 'Tails',
+        heads: 'Head',
+        tails: 'Tail',
         selected: 'Selected'
     },
     es: {
@@ -140,6 +140,7 @@ document.getElementById('btn-moneda').addEventListener('click', () => {
     reproducirSonido(sonidomoneda);
     const nombreArchivo = isHeads ? 'cara-edit.png' : 'cruz-edit.png';
     actualizarContenido(`
+        <img src="assets/logo.png" class="result-logo" alt="Logo">
         <h2>${isHeads ? i18n[currentLang].heads : i18n[currentLang].tails}</h2>
         <img src="assets/${nombreArchivo}" alt="${isHeads ? i18n[currentLang].heads : i18n[currentLang].tails}">
     `);
@@ -155,9 +156,10 @@ document.getElementById('btn-dado').addEventListener('click', () => {
     const nombreArchivo2 = `${numero2}-calabera-edit.png`;
     actualizarContenido(`
         <img src="assets/logo.png" class="result-logo" alt="Logo">
+        <h2>${resultado}</h2>
         <img src="assets/${nombreArchivo}" alt="Die ${numero}">
         <img src="assets/${nombreArchivo2}" alt="Die ${numero2}">
-        <h2>${resultado}</h2>
+        
     `);
 });
 
