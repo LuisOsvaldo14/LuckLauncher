@@ -42,7 +42,7 @@ function applyLanguage(lang){
     const logo = document.querySelector('.nav-logo');
     const h1 = document.querySelector('h1');
     if(logo) logo.textContent = i18n[lang].appTitle;
-    if(h1) h1.innerHTML = `<img src="assets/logo.png" class="title-logo" alt="Logo"> ${i18n[lang].appTitle}`;
+    if(h1) h1.innerHTML = `<img src="assets/logo.webp" class="title-logo" alt="Logo"> ${i18n[lang].appTitle}`;
 
     // Translate current result content if present
     translateResultContent(lang);
@@ -121,10 +121,10 @@ window.onload = () => {
     applyLanguage(currentLang);
 
     const esCara = Math.random() < 0.5;
-    const nombreArchivo = esCara ? 'cara-edit.png' : 'cruz-edit.png';
+    const nombreArchivo = esCara ? 'cara-edit.webp' : 'cruz-edit.webp';
     resultadoDiv.innerHTML = `
-        <h2>${i18n[currentLang].initialResult}: ${esCara ? i18n[currentLang].heads : i18n[currentLang].tails}</h2>
-        <img src="assets/${nombreArchivo}" alt="${esCara ? i18n[currentLang].heads : i18n[currentLang].tails}">
+        <h2 >${i18n[currentLang].initialResult}: ${esCara ? i18n[currentLang].heads : i18n[currentLang].tails}</h2>
+        <img src="assets/${nombreArchivo}" alt="${esCara ? i18n[currentLang].heads : i18n[currentLang].tails}" fetchpriority="high" class="result-img">
     `;
 };
 function reproducirSonido(audioElement) {
@@ -138,11 +138,11 @@ document.getElementById('btn-moneda').addEventListener('click', () => {
     const isHeads = Math.random() < 0.5;
     sonidomoneda.volume = 0.75;
     reproducirSonido(sonidomoneda);
-    const nombreArchivo = isHeads ? 'cara-edit.png' : 'cruz-edit.png';
+    const nombreArchivo = isHeads ? 'cara-edit.webp' : 'cruz-edit.webp';
     actualizarContenido(`
-        <img src="assets/logo.png" class="result-logo" alt="Logo">
+        <img src="assets/logo.webp" class="result-logo" alt="Logo">
         <h2>${isHeads ? i18n[currentLang].heads : i18n[currentLang].tails}</h2>
-        <img src="assets/${nombreArchivo}" alt="${isHeads ? i18n[currentLang].heads : i18n[currentLang].tails}">
+        <img src="assets/${nombreArchivo}" alt="${isHeads ? i18n[currentLang].heads : i18n[currentLang].tails}" class="result-img">
     `);
 });
 
@@ -152,13 +152,13 @@ document.getElementById('btn-dado').addEventListener('click', () => {
     sonidados.volume = 0.75;
     reproducirSonido(sonidados);
     const resultado = numero + numero2;
-    const nombreArchivo = `${numero}-calabera-edit.png`;
-    const nombreArchivo2 = `${numero2}-calabera-edit.png`;
+    const nombreArchivo = `${numero}-calabera-edit.webp`;
+    const nombreArchivo2 = `${numero2}-calabera-edit.webp`;
     actualizarContenido(`
-        <img src="assets/logo.png" class="result-logo" alt="Logo">
+        <img src="assets/logo.webp" class="result-logo" alt="Logo">
         <h2>${resultado}</h2>
-        <img src="assets/${nombreArchivo}" alt="Die ${numero}">
-        <img src="assets/${nombreArchivo2}" alt="Die ${numero2}">
+        <img src="assets/${nombreArchivo}" alt="Die ${numero}" class="result-img">
+        <img src="assets/${nombreArchivo2}" alt="Die ${numero2}" class="result-img">
         
     `);
 });

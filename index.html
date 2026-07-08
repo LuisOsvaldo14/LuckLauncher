@@ -9,19 +9,222 @@
     <meta property="og:title" content="Luck Launcher — Flip Coin & Roll Dice">
     <meta property="og:description" content="Flip a coin or roll dice with animated results. Playful micro app with language selector.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://raw.githubusercontent.com/luisosvaldo14/LuckLauncher/main/assets/logo.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/luisosvaldo14/LuckLauncher/main/assets/logo.webp">
     <meta property="og:url" content="https://luisosvaldo14.github.io/LuckLauncher/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Luck Launcher — Flip Coin & Roll Dice">
     <meta name="twitter:description" content="Flip a coin or roll dice with animated results. Playful micro app with language selector.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/luisosvaldo14/LuckLauncher/main/assets/logo.png">
-    <link rel="icon" href="assets/logo.png" type="image/png">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/luisosvaldo14/LuckLauncher/main/assets/logo.webp">
+    <link rel="icon" href="assets/logo.webp" type="image/webp">
+    
+    <style>
+        html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    
+}
+
+/* Navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.nav-logo{
+    font-weight: bold;
+    font-family: 'Pirata One', cursive;
+    color: #f1f1f1;
+    text-shadow: 1px 1px 10px #f1f1f1;
+}
+.nav-right{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.nav-select{
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+.nav-label{
+    font-size: 0.9rem;
+    margin-right: 4px;
+}
+
+/* Logo images */
+.site-logo{
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+.result-logo{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 8px auto;
+    filter: drop-shadow(0px 0px 5px);
+}
+
+/* El contenedor principal actúa como una columna */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Esto hace que el contenedor ocupe el espacio sobrante */
+    padding: 20px;
+    /* Esto centra horizontalmente */
+    align-items: center;
+}
+
+/* El área de resultado tomará el espacio disponible sin empujar bruscamente */
+.contenedor-resultado {
+    flex: 1; /* Crece para llenar el espacio, pero se encoge si es necesario */
+    display: flex;
+    flex-direction: column; /* Alinea las imágenes en fila */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 10px;
+    overflow: hidden; /* Oculta cualquier cosa que sobresalga del contenedor */
+    position: relative;
+    padding: 10px;
+    max-width: 350px;
+    min-height: 451px;
+    transition: all 0.4s ease-in-out;
+    opacity: 1;
+}
+.hidden {
+    opacity: 0;
+}
+
+.contenedor-resultado h2{
+    margin-top: 0px;
+}
+
+.contenedor-resultado .result-img{
+    width: 350px;
+    height: 190px;   /* La imagen no superará el 90% del ancho del contenedor */
+      /* La imagen no superará el 90% del alto del contenedor */
+    object-fit: contain; /* Mantiene la proporción de la imagen sin deformarla */
+}
+
+/* Drop shadow for result images */
+
+/* Ejemplo de cómo aplicarlo */
+h2 {
+    font-family: 'Pirata One', cursive; /* O la que elijas */
+    color: #d1d1d1; /* Un gris plateado va muy bien con el fondo oscuro */
+    letter-spacing: 2px; /* Un poco de espacio le da un aire más premium */
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.2); /* Un leve brillo místico */
+}
+
+
+.button{
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    transition:all 0.5s ease-in-out;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+}
+.donate-button{
+    padding: 8px 16px;
+    font-size: 0.95rem;
+}
+.button:active{
+    transform: scale(0.9);
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake-active {
+    animation: shake 0.2s infinite ; /* La duración debe coincidir con tu transición */
+}
+
+/* --- Fondo Animado --- */
+.bg-animation {
+    position: fixed; /* Fijo para que cubra toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás de todo el contenido */
+    background: radial-gradient(circle, #2d3436 0%, #000000 100%); /* Fondo oscuro */
+    overflow: hidden; /* Oculta las estrellas que salen de la pantalla */
+}
+
+/* Generador de partículas (estrellas) usando sombras múltiples */
+@keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); } /* Mueve las estrellas hacia arriba */
+}
+
+#stars, #stars2, #stars3 {
+    width: 1px;
+    height: 1px;
+    will-change: transform;
+    background: transparent; 
+    filter: blur(2px);
+}
+
+#stars {
+    width: 1px;
+    height: 1px;
+    animation: animStar 40s ease-in-out alternate-reverse infinite;
+}
+
+#stars2 {
+    width: 2px;
+    height: 2px;
+    animation: animStar 20s ease-in-out alternate-reverse infinite;
+}
+
+#stars3 {
+    width: 3px;
+    height: 3px;
+    animation: animStar 30s ease-in-out alternate-reverse infinite;
+}
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-left">
-            <img src="assets/logo.png" class="site-logo" alt="Logo">
+            <img src="assets/logo.webp" class="site-logo" alt="Logo">
             <span class="nav-logo">Luck Launcher</span>
         </div>
         <div class="nav-right">
