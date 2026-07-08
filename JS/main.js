@@ -82,9 +82,9 @@ function configurarFondo() {
         return sombras.join(', ');
     }
 
-    starsContainer.style.boxShadow = generarSombras(700);
-    stars2Container.style.boxShadow = generarSombras(200);
-    stars3Container.style.boxShadow = generarSombras(100);
+    starsContainer.style.boxShadow = generarSombras(25);
+    stars2Container.style.boxShadow = generarSombras(25);
+    stars3Container.style.boxShadow = generarSombras(25);
 }
 let resizeTimer;
 window.addEventListener('resize', () => {
