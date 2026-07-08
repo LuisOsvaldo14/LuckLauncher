@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luisosvaldo14.github.io/LuckLauncher/sitemap.xml
